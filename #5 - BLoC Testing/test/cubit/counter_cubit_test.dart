@@ -19,15 +19,16 @@ void main() {
     });
 
     blocTest(
-        'the CounterCubit should emit a CounterState(counterValue:1, wasIncremented:true) when the increment function is called',
-        build: () => counterCubit,
-        act: (cubit) => cubit.increment(),
-        expect: [CounterState(counterValue: 1, wasIncremented: true)]);
+      'the CounterCubit should emit a CounterState(counterValue:1, wasIncremented:true) when the increment function is called',
+      build: () => counterCubit,
+      act: (cubit) => cubit.increment(),
+      expect: () => [CounterState(counterValue: 1, wasIncremented: true)],
+    );
 
     blocTest(
         'the CounterCubit should emit a CounterState(counterValue:-1, wasIncremented:false) when the decrement function is called',
         build: () => counterCubit,
         act: (cubit) => cubit.decrement(),
-        expect: [CounterState(counterValue: -1, wasIncremented: false)]);
+        expect: () => [CounterState(counterValue: -1, wasIncremented: false)]);
   });
 }
